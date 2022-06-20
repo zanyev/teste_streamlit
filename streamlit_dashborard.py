@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 path_filtro = r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Inteligence\Relatórios Faros\Produtos Estruturados\Planilhas Operações Gerais\DEBUG saves_ass\operacoes_email_oportunidades.xlsx'
 
 
-list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4])
+list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
 
 
 # In[11]:
