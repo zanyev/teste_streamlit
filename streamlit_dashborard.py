@@ -27,7 +27,7 @@ from functools import lru_cache
 def get_data():
     return pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
 
-
+list_excel = get_data()
 series_clientes = [list_excel[0].Conta,list_excel[1].Conta,list_excel[2].Conta,list_excel[3].Conta,list_excel[4].Conta]
 
 
