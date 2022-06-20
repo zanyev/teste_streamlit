@@ -20,11 +20,17 @@ import matplotlib.pyplot as plt
 path_filtro = r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Inteligence\Relatórios Faros\Produtos Estruturados\Planilhas Operações Gerais\DEBUG saves_ass\operacoes_email_oportunidades.xlsx'
 
 
+from functools import lru_cache
 
-# In[11]:
-list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
+
+@lru_cache
+def get_data():
+    return pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
+
 
 series_clientes = [list_excel[0].Conta,list_excel[1].Conta,list_excel[2].Conta,list_excel[3].Conta,list_excel[4].Conta]
+
+
 
 
 # In[14]:
