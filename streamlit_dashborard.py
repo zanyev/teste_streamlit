@@ -20,13 +20,13 @@ path_filtro = r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Int
 
 
 # In[4]:
-
+'''
 @st.cache
  def fetch_and_clean_data(path_filtro):
      list_excel = pd.read_excel(r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Inteligence\Relatórios Faros\Produtos Estruturados\Planilhas Operações Gerais\DEBUG saves_ass\operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4])
 
      return list_excel
-
+'''
 list_excel = pd.read_excel(r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Inteligence\Relatórios Faros\Produtos Estruturados\Planilhas Operações Gerais\DEBUG saves_ass\operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4])
 
 
