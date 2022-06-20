@@ -22,7 +22,7 @@ path_filtro = r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Int
 
 
 # In[11]:
-list_excel = pd.read_excel(r'https://github.com/zanyev/teste_streamlit/blob/main/operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
+list_excel = pd.read_excel('https://github.com/zanyev/teste_streamlit/blob/main/operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
 
 series_clientes = [list_excel[0].Conta,list_excel[1].Conta,list_excel[2].Conta,list_excel[3].Conta,list_excel[4].Conta]
 
