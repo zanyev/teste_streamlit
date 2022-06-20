@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -19,10 +13,12 @@ import matplotlib.pyplot as plt
 
 path_filtro = r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Inteligence\Relatórios Faros\Produtos Estruturados\Planilhas Operações Gerais\DEBUG saves_ass\operacoes_email_oportunidades.xlsx'
 
+@st.cache  # 👈 Added this
+def read_excel():
+    list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
+    return list_excel
 
-list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
-
-
+list_excel = read_excel()
 # In[11]:
 
 
@@ -93,7 +89,5 @@ else:
 
 
 # In[ ]:
-
-
 
 
