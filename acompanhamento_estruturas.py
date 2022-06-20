@@ -45,7 +45,7 @@ data = data.replace('-',0)
 
 st.set_page_config(layout="wide")
 
-st.title("Operações Sob Custódia Disponíveis")
+st.title("Operações Sob Custódia Prévia do Resultado")
 
 
 # In[20]:
@@ -63,7 +63,7 @@ select = st.sidebar.selectbox('Show Clientes',(data['Código do Cliente']))
 data_filtro = data[data['Código do Cliente'] == select]
 
 
-st.subheader('Fence')
+st.subheader('Operações')
 if data_filtro.empty:
     st.write('Nenhuma Fence Encontrada')
 else:
