@@ -20,11 +20,6 @@ def read_excel():
 
 list_excel = read_excel()
 # In[11]:
-'''
-list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
-
-series_clientes = [list_excel[0].Conta,list_excel[1].Conta,list_excel[2].Conta,list_excel[3].Conta,list_excel[4].Conta]
-'''
 
 # In[14]:
 
