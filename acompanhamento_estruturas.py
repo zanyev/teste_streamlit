@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[18]:
 
 
 import streamlit as st
@@ -14,58 +14,87 @@ import matplotlib.pyplot as plt
 import openpyxl
 
 
-# In[75]:
+# In[19]:
 
 
 from functools import lru_cache
 
 
-# In[82]:
+# In[20]:
 
 
 @lru_cache
 def get_data():
-    return pd.read_excel('./operetas.xlsx',engine='openpyxl' )
+    return pd.read_excel('operetas.xlsx',engine='openpyxl')
 
 
-# In[100]:
+# In[21]:
 
 
 data = get_data()
 
 
-# In[101]:
+# In[22]:
 
 
-data = data.replace('-',0)
+data['Maximo no Periodo'] = data['Maximo no Periodo'].replace('-',0)
 
 
-# In[102]:
+# In[23]:
+
+
+
+# In[24]:
 
 
 st.set_page_config(layout="wide")
 
-st.title("Operações Sob Custódia Prévia do Resultado")
+st.title("Operações Sob Custódia Disponíveis")
 
 
 # In[20]:
+limpar_clientes = st.sidebar.checkbox('Limpar Filtro Clientes')
+buscar_cliente = st.sidebar.checkbox('Buscar Por Nome ?')
+
+if buscar_cliente:
+    select = st.sidebar.selectbox('Show Clientes',(data['Nome'].unique()))
+else:
+    select = st.sidebar.selectbox('Show Clientes',(data['Código do Cliente'].unique()))
+
+limpar_assessores = st.sidebar.checkbox('Limpar Filtro Assessores')
+
+select2 = st.sidebar.selectbox('Show Assessores',(data['Código do Assessor'].unique()))
 
 
 
-select = st.sidebar.selectbox('Show Clientes',(data['Código do Cliente']))
+
 
 
 # In[21]:
 
 
 #get the state selected in the selectbox
+if limpar_clientes:
+    data_filtro = data[data['Código do Cliente'].isin(data['Código do Cliente'].unique())]
+else:
+    if buscar_cliente:
+        data_filtro = data[data['Nome'] == select]
+    else:
+        data_filtro = data[data['Código do Cliente'] == select]
 
-data_filtro = data[data['Código do Cliente'] == select]
+if limpar_assessores:
+    data_filtro = data[data['Código do Cliente'].isin(data['Código do Cliente'].unique())]
+else:
+    data_filtro = data[(data['Código do Assessor'] == select2)] 
 
 
-st.subheader('Operações')
+
+
+
+
+st.subheader('Fence')
 if data_filtro.empty:
-    st.write('Nenhuma Fence Encontrada')
+    st.write('Nenhuma Estrutura Encontrada')
 else:
     st.dataframe(data_filtro)
 
