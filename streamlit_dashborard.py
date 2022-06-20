@@ -40,24 +40,24 @@ clientes_unicos = pd.concat(series_clientes).unique()
 
 
 # In[15]:
+@lru_cache
+def get_frames():
+    for i in range(len(list_excel)):
+        if list_excel[i].Estrutura.iloc[0] == 'FENCE':
+            fence = list_excel[i]
 
+        elif list_excel[i].Estrutura.iloc[0] == 'Booster Vanilla':                
+            booster = list_excel[i]
 
-for i in range(len(list_excel)):
-    if list_excel[i].Estrutura.iloc[0] == 'FENCE':
-        fence = list_excel[i]
-        
+        elif list_excel[i].Estrutura.iloc[0] == 'Collar UI':
+            collar_ui = list_excel[i]
 
-    elif list_excel[i].Estrutura.iloc[0] == 'Booster Vanilla':                
-        booster = list_excel[i]
-        
-    elif list_excel[i].Estrutura.iloc[0] == 'Collar UI':
-        collar_ui = list_excel[i]
-    
-    elif list_excel[i].Estrutura.iloc[0] == 'BoosterShield':
-        booster_shield = list_excel[i]
-        
-    elif list_excel[i].Estrutura.iloc[0] == 'BoosterKO':
-        boosterko = list_excel[i]
+        elif list_excel[i].Estrutura.iloc[0] == 'BoosterShield':
+            booster_shield = list_excel[i]
+
+        elif list_excel[i].Estrutura.iloc[0] == 'BoosterKO':
+            boosterko = list_excel[i]
+     return fence,booster
 
 
 # In[16]:
