@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -13,20 +19,18 @@ import matplotlib.pyplot as plt
 
 path_filtro = r'C:\Users\rlima\FAROS AAI\Faros - Documentos\MESA RV\Business Inteligence\Relatórios Faros\Produtos Estruturados\Planilhas Operações Gerais\DEBUG saves_ass\operacoes_email_oportunidades.xlsx'
 
-@st.cache(suppress_st_warning=True)   # 👈 Added this
-def read_excel():
-    list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = 0,engine='openpyxl')
-    return list_excel
 
-list_excel = read_excel()
+
 # In[11]:
+list_excel = pd.read_excel('./operacoes_email_oportunidades.xlsx',sheet_name = [0,1,2,3,4],engine='openpyxl')
+
+series_clientes = [list_excel[0].Conta,list_excel[1].Conta,list_excel[2].Conta,list_excel[3].Conta,list_excel[4].Conta]
+
 
 # In[14]:
 
 
-#clientes_unicos = pd.concat(series_clientes).unique()
-
-clientes_unicos = list_excel.Conta
+clientes_unicos = pd.concat(series_clientes).unique()
 
 
 # In[15]:
